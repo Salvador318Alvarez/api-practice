@@ -34,7 +34,9 @@ function App() {
         <h3>Chapters</h3>
         <ul className='navbar chapters'>
           {libro.chapters.map((chapter, index) => (
-            <li onClick={() => {setCapitulo(index)}}>{index+1}</li>
+            <li 
+            key={Math.floor(Math.random()*1000000)}
+            onClick={() => {setCapitulo(index)}}>{index+1}</li>
           ))
           }
         </ul>
