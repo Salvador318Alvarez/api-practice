@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Righteous&display=swap');
+
+body{
+  /* margin: 0 2vw 5vh 2vw; */
+  margin: 5vh 0 5vh 0;
+}
+main{
+  margin: 0 2vw 0 2vw;
+}
+section{
+  margin: 0 2vw 0 2vw;
+}
+h1, h2, h3{
+  font-family: 'Aref Ruqaa Ink';
+  margin: 0;
+  padding: 0;
+}
+
+nav h3{
+  font-size: 2vh;
+}
+p{
+  font-family: 'Quicksand';
+  font-weight: 600;
+}
+ 
+.header {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0 2vw;
+  width: 100%;
+  color: white;
+  background-color:darkslategrey;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.button{
+  margin-right: 5vw;
+  padding: 0;
+}
+
+.main-title {
+  font-size: 3vh;
+}
+
+.navbar {
+  font-family: 'Aref Ruqaa Ink';
+  display: flex;
+  margin: 0 0 2vh 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.display {
+  display: inherit;
+}
+.display-none{
+  display: none;
+}
+
+.navbar li{
+  width: auto;
+  list-style-type: none;
+  padding: 1vh 1vw;
+  border: 1px outset rgba(0,0,0,0.75);
+}
+
+.navbar li:hover{
+  cursor:pointer;
+}
+.navbar li:active{
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+}
+
+.chapters li{
+  width: 4vh;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
