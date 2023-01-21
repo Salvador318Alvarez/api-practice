@@ -1,20 +1,26 @@
 import { useState } from 'react'
 import genesis from './data/Genesis.json'
 import exodus from './data/Exodus.json'
+import leviticus from './data/Leviticus.json'
 
 function App() {
-  const [data, setData] = useState(genesis)
-
+  const [libro, setLibro] = useState(genesis)
+  const [capitulo, setCapitulo] = useState(0)
   
 
   return (
     <>
-     <h1>{data.book}</h1> 
+      <li onClick={() => setData(exodus)}>Exodus</li>
+      <li onClick={() => setData(leviticus)}>Leviticus</li>
+     <h1>{libro.book}</h1> 
      
-     {data.chapters.map((chap) => 
+     {libro.chapters.map((chap) => 
           (<div key={Math.floor(Math.random()*1000000)}>
           <h3>Chapter {chap.chapter}</h3>
-          <p> </p>
+            {chap.verses.map(versiculo => (
+                <p key={Math.floor(Math.random()*10000000)}>{versiculo.verse}. {versiculo.text}</p>
+            ))
+            }
           </div>
           )
       )} 
