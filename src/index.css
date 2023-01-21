@@ -2,7 +2,7 @@
 
 body{
   /* margin: 0 2vw 5vh 2vw; */
-  margin: 5vh 0 5vh 0;
+  margin: 7vh 0 7vh 0;
 }
 main{
   margin: 0 2vw 0 2vw;
@@ -22,6 +22,7 @@ nav h3{
 p{
   font-family: 'Quicksand';
   font-weight: 500;
+  font-size: 2.5vh;
 }
  
 .header {
@@ -36,6 +37,26 @@ p{
   background-color:darkslategrey;
   justify-content: space-between;
   align-items: baseline;
+}
+
+.footer{
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 2vh 2vw;
+  width: 100%;
+  color: white;
+  background-color:darkslategrey;
+  justify-content: space-evenly;
+  align-items: baseline;
+  list-style-type: none;
+}
+.footer li {
+  border-radius: 45px;
+  padding: 5px 10px;
+  border: 1px solid white;
 }
 
 .button{
@@ -83,8 +104,19 @@ p{
   text-align: center;
 }
 
-.title {
+/* .title {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  font-size: 2vh;
+}
+
+.title h2, .title h3 {
+  margin: 0;
+  padding: 0;
+} */
+
+.bolder {
+  font-weight: 600;
+  color: rgba(0, 0, 0, .9)
 }

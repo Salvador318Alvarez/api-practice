@@ -23,7 +23,7 @@ function App() {
     </header>
 
     <nav className={display}>
-        <h3>Books</h3>
+        <h3>Choose Book</h3>
         <ul className='navbar books'>
           <li onClick={() => {setLibro(genesis); setCapitulo(0)}}>Genesis</li>
           <li onClick={() => {setLibro(exodus); setCapitulo(0)}}>Exodus</li>
@@ -31,31 +31,36 @@ function App() {
           <li onClick={() => {setLibro(numbers); setCapitulo(0)}}>Numbers</li>
           <li onClick={() => {setLibro(deuteronomy); setCapitulo(0)}}>Deuteronomy</li>
         </ul>
-        <h3>Chapters</h3>
+        <h3>Choose Chapter</h3>
         <ul className='navbar chapters'>
           {libro.chapters.map((chapter, index) => (
             <li 
             key={Math.floor(Math.random()*1000000)}
-            onClick={() => {setCapitulo(index)}}>{index+1}</li>
+            onClick={() => {setCapitulo(index); handleClick()}}>{index+1}</li>
           ))
           }
         </ul>
       </nav>
     
-     <section className='title'>
+     {/* <section className='title'>
       <h2>{libro.book}</h2> 
-      <h3>Chapter {libro.chapters[capitulo].chapter}</h3>
+      <h3>Chapter {capitulo+1}</h3>
      </section>
-   
+    */}
      <main>
       {libro.chapters[capitulo].verses.map(verse => (
         <p key={Math.floor(Math.random()*10000000)}>
-          {verse.verse}. {verse.text}
+          <span className='bolder'>{verse.verse}</span>. {verse.text}
         </p>
       ))
       }
       </main>
       
+      <footer className='footer'>
+        <li>--</li>
+        <h3>{libro.book} {capitulo+1}</h3>
+        <li>+</li>
+      </footer>
 
     </>
   )
