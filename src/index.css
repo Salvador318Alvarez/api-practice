@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Righteous&display=swap');
 
 body{
-  /* margin: 0 2vw 5vh 2vw; */
-  margin: 7vh 0 7vh 0;
+  margin: 9vh 0 13vh 0;
 }
-main{
+.main{
   margin: 0 2vw 0 2vw;
 }
+
 section{
   margin: 0 2vw 0 2vw;
 }
+
 h1, h2, h3{
   font-family: 'Aref Ruqaa Ink';
   margin: 0;
@@ -17,8 +18,53 @@ h1, h2, h3{
 }
 
 nav h3{
-  font-size: 2vh;
+  font-size: 3vh;
+  margin-left: 4vw;
 }
+.navbar-chapters {
+  font-family: 'Aref Ruqaa Ink';
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 5vw;
+  padding: 0;
+}
+
+.navbar-chapters li{
+  width: 10vw;
+  font-size: 2vh;
+  text-align: center;
+  list-style-type: none;
+  padding: 1vh 2vw;
+  border: 1px outset rgba(0,0,0,0.75);
+}
+
+.navbar-books{
+  font-family: 'Aref Ruqaa Ink';
+  display: flex;
+  padding: 2vw;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.navbar-books li{
+  width: 80vw;
+  font-size: 5vw;
+  text-align: center;
+  list-style-type: none;
+  padding: 1vh 1vw;
+  border: 1px outset rgba(0,0,0,0.75);
+}
+
+nav li:hover{
+  cursor:pointer;
+}
+nav li:active{
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+}
+
+
+
 p{
   font-family: 'Quicksand';
   font-weight: 500;
@@ -36,7 +82,14 @@ p{
   color: white;
   background-color:darkslategrey;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+}
+
+.search{
+  width: 40vw;
+  margin-right: 5vw;
+  height: inherit;
+  font-size: 3vh;
 }
 
 .footer{
@@ -66,20 +119,11 @@ p{
 }
 
 .main-title {
-  font-size: 3vh;
+  font-size: 4vh;
 }
 
-.navbar {
-  font-family: 'Aref Ruqaa Ink';
-  display: flex;
-  margin: 0 0 2vh 0;
-  padding: 0;
-  flex-wrap: wrap;
-  position: fixed;
-  top: 7vh;
-  left: 2vw;
-  background-color: white;
-}
+
+
 
 .display {
   display:table;
@@ -89,20 +133,7 @@ p{
   display: none;
 }
 
-.navbar li{
-  width: auto;
-  list-style-type: none;
-  padding: 1vh 1vw;
-  border: 1px outset rgba(0,0,0,0.75);
-}
 
-.navbar li:hover{
-  cursor:pointer;
-}
-.navbar li:active{
-  background-color: rgba(0, 0, 0, 0.75);
-  color: white;
-}
 
 .chapters li{
   width: 4vh;
