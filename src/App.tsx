@@ -1,4 +1,3 @@
-import ChaptersNavbar from "./components/ChaptersNavbar";
 import bible from "./data/Bible.json"
 import { useState } from "react";
 
@@ -6,12 +5,12 @@ const App = () => {
     const [chapterNum, setChapterNum] = useState(0)
     const [bookNum, setBookNum] = useState(0)
     
-    const [showMain, setShowMain] = useState(false)
-    const [showBooksNav, setShowBooksNav] = useState(true)
+    const [showMain, setShowMain] = useState(true)
+    const [showBooksNav, setShowBooksNav] = useState(false)
     const [showChaptersNav, setShowChaptersNav] = useState(false)
     const libro = bible[bookNum]
 
-    console.log(bookNum+1, bible.length);
+    console.log(libro.chapters.length);
     
     return ( 
     <>
@@ -81,12 +80,21 @@ const App = () => {
     
     <footer className='footer'>
 
-        <li onClick={
-            (chapterNum !== 0)?
-            () => {
-                setChapterNum(chapterNum - 1);
-            }:
-            null
+        <li onClick={() => {
+            if (chapterNum !== 0){
+                setChapterNum(chapterNum - 1)
+            }
+            else {
+                if(bookNum === 0){
+                    setBookNum(65)
+                    setChapterNum(21)
+                } else {
+                    setBookNum(bookNum - 1);
+                    setChapterNum(bible[bookNum-1].chapters.length-1)
+                }
+            }
+        }
+           
         }>--</li>
 
         <h3>
@@ -116,10 +124,19 @@ const App = () => {
             >{chapterNum+1}</span>
         </h3>
 
-        <li onClick={
-            ((chapterNum+1) !== libro.chapters.length)?
-            () => {setChapterNum(chapterNum + 1)}:
-            null
+        <li onClick={() => {
+                if ((chapterNum + 1) !== libro.chapters.length){
+                    setChapterNum(chapterNum + 1)
+                } else {
+                    if(bookNum !== 65){
+                        setBookNum(bookNum+1)
+                        setChapterNum(0)
+                    }else {
+                        setBookNum(0)
+                        setChapterNum(0)
+                    }
+                }
+            }
         }>+</li>
 
     
