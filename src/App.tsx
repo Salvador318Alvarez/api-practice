@@ -8,18 +8,55 @@ const App = () => {
     const [showMain, setShowMain] = useState(true)
     const [showBooksNav, setShowBooksNav] = useState(false)
     const [showChaptersNav, setShowChaptersNav] = useState(false)
+    const [showSearchResults, setShowSearchResults] = useState(false)
+
+    const [searchInput, setSearchInput] = useState(null)
+    const [searchOutput, setSearchOutput] = useState(null)
+
     const libro = bible[bookNum]
 
-    console.log(libro.chapters.length);
+    const books = bible.map(book => book.chapters.map(chap => chap.verses.map(verse => verse.text)))
+   
+
     
+
+    const handleChange = (e) => {
+        e.preventDefault()
+        console.log(e.target.value)
+        setSearchInput(e.target.value)
+        setSearchOutput(bible.filter(libre =>
+            libre.book.includes(searchInput)))
+        console.log(searchOutput);
+        
+        if(e.target.value !== ''){
+        setShowBooksNav(false)
+        setShowChaptersNav(false)
+        setShowMain(false)
+        setShowSearchResults(true)
+        }
+        else{
+            setShowBooksNav(false)
+            setShowChaptersNav(false)
+            setShowMain(true)
+            setShowSearchResults(false)
+        }
+    }
+
     return ( 
     <>
     <header className='header'>
-        <h1 className='main-title'>KJV App</h1>
+        <h1 className='main-title'
+            onClick= {() => 
+                {setShowSearchResults(false); 
+                 setShowMain(true)
+                }
+            }
+        >KJV App</h1>
         <input 
             className="search"
             type="text"
             placeholder="search"
+            onChange={handleChange}
         />
     </header>
 
@@ -35,6 +72,16 @@ const App = () => {
     </main>
 
     )}  
+
+    {showSearchResults && (
+        <main>
+            <h3>Search Results for {searchInput}</h3>
+            {searchOutput.map(result => (
+                <p>{result.book}</p>
+            ))} 
+            
+        </main>
+    )}
 
     {showBooksNav && (
     <nav>
