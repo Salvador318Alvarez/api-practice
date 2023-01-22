@@ -1,69 +1,47 @@
-import { useState } from 'react'
-import genesis from './data/Genesis.json'
-import exodus from './data/Exodus.json'
-import leviticus from './data/Leviticus.json'
-import numbers from './data/Numbers.json'
-import deuteronomy from './data/Deuteronomy.json'
+import Header from "./components/Header";
+import Main from "./components/Main";
+import ChaptersNavbar from "./components/ChaptersNavbar";
+import BooksNavbar from "./components/BooksNavbar";
+import bible from "./data/Bible.json"
+import { useState } from "react";
 
-function App() {
-  const [libro, setLibro] = useState(genesis)
-  const [capitulo, setCapitulo] = useState(0)
-  const [display, setDisplay] = useState('display-none')
-  const handleClick = () => {
-  if (display == 'display-none'){
-    setDisplay('display')
-  } else {setDisplay('display-none')}
-  }
+const App = () => {
+    const [capitulo, setCapitulo] = useState(0)
+    const [bibleNum, setBibleNum] = useState(0)
+    const libro = bible[bibleNum]
 
-  return (
+    return ( 
     <>
-    <header className='header'>
-      <h1 className='main-title'>Bible App</h1>
-      <span className='button' onClick={handleClick}>Choose Passage</span>
-    </header>
+    <Header />
 
-    <nav className={display}>
-        <h3>Choose Book</h3>
-        <ul className='navbar books'>
-          <li onClick={() => {setLibro(genesis); setCapitulo(0)}}>Genesis</li>
-          <li onClick={() => {setLibro(exodus); setCapitulo(0)}}>Exodus</li>
-          <li onClick={() => {setLibro(leviticus); setCapitulo(0)}}>Leviticus</li>
-          <li onClick={() => {setLibro(numbers); setCapitulo(0)}}>Numbers</li>
-          <li onClick={() => {setLibro(deuteronomy); setCapitulo(0)}}>Deuteronomy</li>
-        </ul>
-        <h3>Choose Chapter</h3>
-        <ul className='navbar chapters'>
-          {libro.chapters.map((chapter, index) => (
-            <li 
-            key={Math.floor(Math.random()*1000000)}
-            onClick={() => {setCapitulo(index); handleClick()}}>{index+1}</li>
-          ))
-          }
-        </ul>
-      </nav>
+    <Main bible={bible} libro={libro} capitulo={capitulo}/>
+         
+    <BooksNavbar/>
+    <ChaptersNavbar />
     
-     {/* <section className='title'>
-      <h2>{libro.book}</h2> 
-      <h3>Chapter {capitulo+1}</h3>
-     </section>
-    */}
-     <main>
-      {libro.chapters[capitulo].verses.map(verse => (
-        <p key={Math.floor(Math.random()*10000000)}>
-          <span className='bolder'>{verse.verse}</span>. {verse.text}
-        </p>
-      ))
-      }
-      </main>
-      
-      <footer className='footer'>
-        <li>--</li>
-        <h3>{libro.book} {capitulo+1}</h3>
-        <li>+</li>
-      </footer>
+    <footer className='footer'>
+        <li onClick={
+            () => setBibleNum(bibleNum - 1)
+        }>--</li>
+        <li onClick={
+            (capitulo !== 0)?
+            () => setCapitulo(capitulo - 1):
+            null
+        }>--</li>
+        <h3>
+            <span className='choose-book'>{libro.book}</span>
+            <span className='choose-chapter'>{capitulo+1}</span>
+        </h3>
 
+        <li onClick={
+            () => {setCapitulo(capitulo + 1)}
+        }>+</li>
+        <li onClick={
+            () => {setBibleNum(bibleNum + 1)}
+        }>+</li>
+    </footer>
     </>
-  )
+    );
 }
-
-export default App
+ 
+export default App;
