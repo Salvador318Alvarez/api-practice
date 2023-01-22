@@ -51,7 +51,7 @@ const App = () => {
                  setShowMain(true)
                 }
             }
-        >KJV App</h1>
+        >KJV</h1>
         <input 
             className="search"
             type="text"
