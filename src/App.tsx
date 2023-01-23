@@ -53,7 +53,7 @@ const App = () => {
             }
         >KJV</h1>
         <input 
-            className="search"
+            className="search display-none"
             type="text"
             placeholder="search"
             onChange={handleChange}
